@@ -1,0 +1,415 @@
+/* File: src/App.css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* --- PALET WARNA BARU (Hitam, Merah, Ungu) --- */
+  
+  /* Ungu Neon untuk Primary Action */
+  --primary-color: #9b59b6; 
+  --primary-hover: #8e44ad;
+
+  /* Hitam Kebiruan/Ungu Gelap untuk Secondary */
+  --secondary-color: #1a0b2e;
+
+  /* Hijau tetap untuk sukses (agar UX tetap jelas) */
+  --success-color: #2ecc71; 
+
+  /* Merah Menyala untuk Aksen & Danger */
+  --danger-color: #e74c3c; 
+  --accent-red: #ff4757;
+
+  /* Background Colors */
+  --light-bg: #f5f6fa;       /* Putih tulang (untuk Light Mode) */
+  --dark-bg: #050505;        /* Hitam Pekat (untuk Dark Mode) */
+  --card-dark-bg: #151515;   /* Abu Hitam (untuk Kartu Dark Mode) */
+
+  /* Text Colors */
+  --light-text: #2f3542;
+  --dark-text: #dfe4ea;
+}
+
+/* Base Theme Styles */
+.app {
+  transition: background-color 0.3s ease, color 0.3s ease;
+  min-height: 100vh;
+}
+
+.app.light {
+  background-color: var(--light-bg);
+  color: var(--light-text);
+}
+
+/* --- TEMA GELAP (Fokus Utama Modifikasi) --- */
+.app.dark {
+  background-color: var(--dark-bg);
+  color: var(--dark-text);
+}
+
+/* Header Styles */
+.header {
+  padding: 1rem 2rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(10px);
+}
+
+.header.light {
+  background: rgba(255, 255, 255, 0.95);
+  border-bottom: 2px solid var(--primary-color);
+}
+
+.header.dark {
+  /* Gradasi Hitam ke Ungu Gelap */
+  background: linear-gradient(to right, #000000, #180520);
+  border-bottom: 2px solid var(--primary-color);
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.logo h1 {
+  font-size: 1.8rem;
+    -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 800;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* Theme Toggle */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: bold;
+}
+
+.theme-toggle.light {
+  background: #e1e1e1;
+  border: 1px solid #ccc;
+  color: #333;
+}
+
+.theme-toggle.dark {
+  background: #2d0f38; /* Ungu sangat gelap */
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  box-shadow: 0 0 10px rgba(155, 89, 182, 0.2);
+}
+
+.theme-toggle:hover {
+  transform: scale(1.05);
+}
+
+/* Button Styles */
+.btn {
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 8px; /* Sudut lebih tajam dikit */
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.btn-primary {
+  background: linear-gradient(45deg, var(--primary-color), #8e44ad);
+  color: white;
+  box-shadow: 0 4px 15px rgba(142, 68, 173, 0.4);
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: linear-gradient(45deg, #8e44ad, var(--accent-red));
+  box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background: #7f8c8d;
+  color: white;
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+}
+
+.btn-outline:hover {
+  background: var(--primary-color);
+  color: white;
+}
+
+.btn-danger {
+  background: var(--danger-color);
+  color: white;
+}
+
+.btn-danger:hover {
+  background: #c0392b;
+  box-shadow: 0 4px 15px rgba(231, 76, 60, 0.4);
+}
+
+.btn-sm {
+  padding: 0.4rem 0.8rem;
+  font-size: 0.8rem;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: #555;
+  box-shadow: none;
+}
+
+/* Home Page Layout */
+.home-page {
+  padding: 2rem;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Product Styles */
+.product-list {
+  padding: 1.5rem;
+  border-radius: 12px;
+}
+
+.product-list.light { background: white; }
+.product-list.dark { background: transparent; } /* Transparan agar menyatu dengan body */
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.product-card {
+  padding: 1.5rem;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.product-card.light {
+  background: white;
+  border: 1px solid #eee;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+/* Styling Khusus Kartu Dark Mode */
+.product-card.dark {
+  background: var(--card-dark-bg);
+  border: 1px solid #333;
+  /* Efek border halus warna ungu */
+  border-left: 3px solid var(--primary-color); 
+}
+
+.product-card.dark:hover {
+  transform: translateY(-5px);
+  /* Glow efek ungu saat hover */
+  box-shadow: 0 8px 25px rgba(155, 89, 182, 0.25);
+  border-color: var(--primary-color);
+}
+
+.product-info h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.description {
+  color: #888;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+
+.app.dark .description {
+  color: #bbb;
+}
+
+.price {
+  font-weight: 800;
+  font-size: 1.1rem;
+  /* Harga berwarna merah neon */
+  color: var(--accent-red);
+  margin-bottom: 1.2rem;
+  text-shadow: 0 0 10px rgba(255, 71, 87, 0.2);
+}
+
+/* Cart Styles */
+.cart {
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+}
+
+.cart.light { background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+
+.cart.dark {
+  background: var(--card-dark-bg);
+  border: 1px solid #333;
+  border-top: 3px solid var(--accent-red); /* Aksen merah di atas keranjang */
+}
+
+.cart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.cart-item {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background: rgba(255, 255, 255, 0.03); /* Sedikit terang dari background */
+  border-radius: 8px;
+}
+
+.item-info {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+}
+
+.item-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0,0,0,0.2);
+  padding: 0.5rem;
+  border-radius: 6px;
+}
+
+.quantity {
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.item-total {
+  text-align: right;
+  font-weight: bold;
+  color: var(--accent-red);
+  margin-top: 0.5rem;
+}
+
+.cart-footer {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+/* User Profile Styles */
+.user-profile {
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+}
+
+.user-profile.light { background: white; }
+
+.user-profile.dark {
+  background: var(--card-dark-bg);
+  border: 1px solid #333;
+}
+
+.profile-info {
+  text-align: center;
+}
+
+.avatar {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  filter: drop-shadow(0 0 10px rgba(155, 89, 182, 0.5));
+}
+
+.details { margin-bottom: 1.5rem; }
+
+/* Form Styles */
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.8rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background: transparent;
+  color: inherit;
+  margin-bottom: 1rem;
+}
+
+.app.dark .form-group input {
+  border: 1px solid #444;
+  background: rgba(255,255,255,0.05);
+}
+
+.app.dark .form-group input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 8px rgba(155, 89, 182, 0.3);
+}
+
+.demo-credentials {
+  margin-top: 1rem;
+  padding: 0.8rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+}
+
+.app.light .demo-credentials {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.app.dark .demo-credentials {
+  background: rgba(231, 76, 60, 0.1); /* Merah transparan */
+  border: 1px solid rgba(231, 76, 60, 0.3);
+  color: #ffcccb;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container { grid-template-columns: 1fr; }
+  .header-content { flex-direction: column; gap: 1rem; }
+}

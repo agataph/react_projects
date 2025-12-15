@@ -1,0 +1,130 @@
+.TodoList {
+  background: rgba(255, 255, 255, 0.1);
+  color: #2575fc;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  transition: 0.3s ease;
+}
+
+/* Judul */
+.TodoList h2 {
+  text-align: center;
+  margin-bottom: 15px;
+  font-size: 1.4rem;
+  color:#2575fc;
+  letter-spacing: 0.5px;
+}
+
+/* Input + Tombol Tambah */
+.todo-input {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.todo-input input {
+  width: 70%;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  font-size: 0.95rem;
+}
+
+.todo-input button {
+  background-color: #ffffff;
+  color: #2575fc;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 12px;
+  margin-left: 6px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  font-weight: 600;
+}
+
+.todo-input button:hover {
+  background-color: #2575fc;
+  color: #fff;
+}
+
+/* Filter Buttons */
+.filter-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.filter-buttons button {
+  background: transparent;
+  border: 1.5px solid #fff;
+  color: #fff;
+  border-radius: 25px;
+  padding: 6px 14px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.filter-buttons button:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.filter-buttons .active {
+  background: #fff;
+  color: #2575fc;
+}
+
+/* Daftar Todo */
+.TodoList ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.TodoList li {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  margin-bottom: 8px;
+  padding: 8px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.TodoList li span {
+  flex: 1;
+  margin-left: 10px;
+  font-size: 0.95rem;
+}
+
+.TodoList li span.completed {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+/* Tombol hapus */
+.TodoList li button {
+  background-color: #ff4d4d;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: 0.3s ease;
+}
+
+.TodoList li button:hover {
+  background-color: #ff2b2b;
+}
+
+/* Statistik */
+.stats {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}

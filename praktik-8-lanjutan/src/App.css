@@ -1,0 +1,222 @@
+/* ==================================== */
+/* 1. LOGIN PAGE STYLES                 */
+/* ==================================== */
+
+/* Styling untuk halaman Login */
+.login-container {
+    display: flex;
+    justify-content: center; /* Pusatkan horizontal */
+    align-items: center;     /* Pusatkan vertikal */
+    min-height: 100vh;       /* Ambil tinggi penuh viewport */
+    background-color: #f4f7f6; /* Latar belakang abu-abu muda */
+    font-family: Arial, sans-serif;
+}
+
+/* Styling untuk Card Login */
+.login-content {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* Bayangan halus */
+    width: 100%;
+    max-width: 400px; /* Batasi lebar formulir */
+    text-align: center;
+}
+
+.login-content h1 {
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.login-content p {
+    color: #666;
+    margin-bottom: 25px;
+}
+
+/* Styling untuk Form (dari FormLogin) */
+.login-content form div {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.login-content label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+    font-size: 14px;
+}
+
+.login-content input[type="text"],
+.login-content input[type="password"] {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    box-sizing: border-box; /* Penting agar padding tidak menambah lebar */
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+.login-content input[type="text"]:focus,
+.login-content input[type="password"]:focus {
+    border-color: #007bff; /* Warna biru saat fokus */
+    outline: none;
+}
+
+/* Styling untuk Tombol Login */
+.login-content button[type="submit"] {
+    width: 100%;
+    background-color: #007bff; /* Warna utama (biru) */
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.1s;
+    margin-top: 15px;
+}
+
+.login-content button[type="submit"]:hover {
+    background-color: #0056b3; /* Sedikit lebih gelap saat hover */
+}
+
+.login-content button[type="submit"]:active {
+    transform: scale(0.99);
+}
+
+/* ==================================== */
+/* 2. GLOBAL STYLES              */
+/* ==================================== */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7f6;
+    color: #C7EA46;
+}
+
+/* ==================================== */
+/* 3. APP LAYOUT STYLES          */
+/* ==================================== */
+.app-layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Header */
+.app-header {
+    background-color: #0b6623; /* Warna gelap untuk header */
+    color: #ffffff;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between; /* Judul dan nav di sisi berbeda */
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.app-title {
+    margin: 0;
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* Navigation */
+.app-nav .nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 25px; /* Jarak antar item nav */
+}
+
+.app-nav .nav-link {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 16px;
+    padding: 8px 0;
+    position: relative;
+    transition: color 0.3s ease-in-out;
+}
+
+/* Animasi underline saat hover */
+.app-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: #20c997; /* Warna highlight */
+    left: 0;
+    bottom: -5px;
+    transition: width 0.3s ease-in-out;
+}
+
+.app-nav .nav-link:hover::after {
+    width: 100%;
+}
+
+.app-nav .nav-link:hover {
+    color: #d9dddc; /* Warna teks berubah saat hover */
+}
+
+
+/* Main Content Area */
+.app-main {
+    flex-grow: 1; /* Agar main content mengisi ruang kosong */
+    padding: 30px;
+    max-width: 1200px; /* Batasi lebar konten */
+    margin: 0 auto; /* Pusatkan konten */
+}
+
+/* Footer */
+.app-footer {
+    background-color: #0b6623;
+    color: #ffffff;
+    text-align: center;
+    padding: 15px 30px;
+    font-size: 14px;
+    margin-top: auto; /* Dorong footer ke bawah */
+}
+
+/* ==================================== */
+/* 4. DASHBOARD STYLES           */
+/* ==================================== */
+/* Animasi Fade-in untuk konten dashboard */
+.dashboard-container {
+    opacity: 0; /* Mulai tersembunyi */
+    transform: translateY(20px); /* Mulai dari sedikit di bawah */
+    animation: fadeInSlideUp 0.6s ease-out forwards; /* Animasi */
+    animation-delay: 0.2s; /* Tunda sedikit agar header muncul duluan */
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.dashboard-container h1 {
+    color: #6c7bbe;
+    margin-bottom: 15px;
+    font-size: 32px;
+}
+
+.dashboard-container p {
+    color: #555;
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+/* Keyframe untuk animasi fade-in dan slide-up */
+@keyframes fadeInSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
